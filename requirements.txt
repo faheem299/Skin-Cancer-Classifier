@@ -3,5 +3,6 @@ numpy
 pillow
 uvicorn
 fastapi
-tensorflow
+tensorflow-cpu
 huggingface_hub
+python-multipart
