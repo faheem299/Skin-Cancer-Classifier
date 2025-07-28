@@ -3,5 +3,5 @@ numpy
 pillow
 uvicorn
 fastapi
-tensorflow-nightly
+tensorflow
 huggingface_hub
