@@ -1,0 +1,29 @@
+*.keras
+*.ipynb
+venv/
+__pycache__/
+*.log
+frontend/node_modules/
+frontend/build/
+.DS_Store
+
+
+
+# Ignore Python virtual environments
+venv/
+env/
+
+# Ignore model files
+*.keras
+
+# Ignore Jupyter notebooks
+*.ipynb
+
+# Ignore system files
+.DS_Store
+*.pyc
+__pycache__/
+
+# Ignore logs or temporary files
+*.log
+*.tmp
