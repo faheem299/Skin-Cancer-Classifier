@@ -7,7 +7,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from huggingface_hub import hf_hub_download
 from fastapi.responses import FileResponse
+from pathlib import Path
 
+
+BASE_DIR = Path(__file__).resolve().parent
+REACT_BUILD_DIR = BASE_DIR.parent/"frontend"/"build"
+STATIC_DIR = REACT_BUILD_DIR/"static"
 
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -25,7 +30,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app.mount("/static", StaticFiles(directory="../frontend/build/static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 @app.on_event("startup")
@@ -38,10 +43,11 @@ async def load_model():
     prediction_model = tf.keras.models.load_model(model_path)
     
     
-@app.get('/{full_path:path}')
-async def serve_react_app(full_path: str):
-    file_path = os.path.join("../frontend/build", "index.html")
-    return FileResponse(file_path)
+@app.get('/')
+async def serve_react_app():
+    index_file = REACT_BUILD_DIR/"index.html"
+    
+    return FileResponse(index_file)
 
 
 
