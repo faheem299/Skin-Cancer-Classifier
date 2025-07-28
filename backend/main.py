@@ -6,7 +6,7 @@ import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from huggingface_hub import hf_hub_download
-
+from fastapi.responses import FileResponse
 
 
 UPLOAD_DIR = "uploads"
@@ -38,9 +38,10 @@ async def load_model():
     prediction_model = tf.keras.models.load_model(model_path)
     
     
-@app.get('/')
-def chol():
-    return {"choltese re vai"}
+@app.get('/{full_path:path}')
+async def serve_react_app(full_path: str):
+    file_path = os.path.join("../frontend/build", "index.html")
+    return FileResponse(file_path)
 
 
 
