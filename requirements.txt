@@ -6,3 +6,4 @@ fastapi
 tensorflow-cpu
 huggingface_hub
 python-multipart
+pathlib
