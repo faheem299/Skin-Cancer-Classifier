@@ -3,5 +3,5 @@ numpy
 pillow
 uvicorn
 fastapi
-tensorflow==2.15.0
+tensorflow-nightly
 huggingface_hub
