@@ -62,7 +62,7 @@ def upload_image(file: UploadFile = File(...)):
     file.file.close()
 
     img_path = os.path.join(UPLOAD_DIR, file.filename)
-    img = tf.keras.utils.load_img(img_path, target_size=(img_height,img_width))
+    img = tf.keras.utils.load_img(img_path, target_size=(img_height,img_width),color_mode="rgb")
     img_array = tf.keras.utils.img_to_array(img)
 
     img_batch = np.expand_dims(img_array, axis=0)
