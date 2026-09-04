@@ -1,7 +1,7 @@
 fastapi
 uvicorn
-tensorflow-cpu
-numpy
+tensorflow-cpu==2.15.0
+numpy<2
 python-multipart
 huggingface_hub
 pillow
