@@ -1,9 +1,9 @@
-
-numpy
-pillow
-uvicorn
 fastapi
-tensorflow-cpu
-huggingface_hub
+uvicorn
+tensorflow-cpu==2.18.0
+keras==3.7.0
+numpy==2.0.2
 python-multipart
+huggingface_hub
+pillow
 pathlib
